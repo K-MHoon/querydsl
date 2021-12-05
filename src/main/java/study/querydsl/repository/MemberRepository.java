@@ -1,11 +1,13 @@
 package study.querydsl.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import study.querydsl.entity.Member;
 
 import java.util.List;
 
-public interface MemberRepository extends JpaRepository<Member, Long> {
+@Repository
+public interface MemberRepository extends JpaRepository<Member, Long>, MemberRepositoryCustom {
     //selec m from Member m where m.username = ?
     List<Member> findByUsername(String username);
 }
